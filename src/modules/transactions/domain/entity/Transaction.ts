@@ -1,5 +1,5 @@
-import {TransactionTypeEnum} from "../enums/TransactionType.enum";
-import {TransactionRegularityEnum} from "../enums/TransactionRegularity.enum";
+import {TransactionTypeEnum} from "../../../../share/enums/TransactionType.enum";
+import {TransactionRegularityEnum} from "../../../../share/enums/TransactionRegularity.enum";
 
 export default class Transaction {
     id: number
