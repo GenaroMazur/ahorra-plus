@@ -21,7 +21,7 @@ export default class Database implements ApplicationModule {
         })
     }
 
-    private datasource: DataSource
+    public datasource: DataSource
 
     async start(): Promise<void> {
         await this.datasource.initialize()
