@@ -20,6 +20,4 @@ COPY package-lock.json ./
 
 RUN npm install --only=production
 
-VOLUME ["/app/logs"]
-
 CMD ["node", "dist/index.js"]
