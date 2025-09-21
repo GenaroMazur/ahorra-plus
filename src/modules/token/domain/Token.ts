@@ -6,7 +6,7 @@ export default class Token {
     /**
      * Subject, id user
      */
-    sub: string;
+    sub: number;
     /**
      * Audience, quien usara el token
      */
@@ -25,7 +25,7 @@ export default class Token {
     exp: number;
 
 
-    constructor(jti: string, sub: string, aud: string, iss: string, iat: number, exp: number) {
+    constructor(jti: string, sub: number, aud: string, iss: string, iat: number, exp: number) {
         this.jti = jti;
         this.sub = sub;
         this.aud = aud;
