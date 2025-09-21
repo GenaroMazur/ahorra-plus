@@ -30,7 +30,7 @@ process.on("SIGTERM", CloseProcessCallback(application));
 import notFoundController from "./infrastructure/http/NotFound.controller";
 import IndexRouter from "./infrastructure/http/index.router";
 
-application.Server.application.use("api/v1", IndexRouter)
+application.Server.application.use("/api/v1", IndexRouter)
 application.Server.application.use(notFoundController)
 
 application.start().catch(console.error)

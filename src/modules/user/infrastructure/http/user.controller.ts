@@ -8,12 +8,16 @@ export const loginController = controllerBuilder(async (req) => {
     return loginUseCase.execute(name, password);
 })
 
-export const registerController = controllerBuilder(async (req) => {
+export const registerController = controllerBuilder(async (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
 
-    registerUseCase.execute(name, email, password);
+    await registerUseCase.execute(name, email, password);
+
+    res.statusCode = 201;
+
+    return "Usuario creado exitosamente";
 })
 
 export const selfUserInfoController = controllerBuilder(async (_, {locals}) => {
