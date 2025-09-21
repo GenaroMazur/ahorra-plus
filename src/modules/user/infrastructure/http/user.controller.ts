@@ -1,5 +1,5 @@
 import controllerBuilder from "../../../../share/utils/controllerBuilder";
-import {loginUseCase, registerUseCase} from "../../config/di.container";
+import {loginUseCase, registerUseCase, userDetailUseCase} from "../../config/di.container";
 
 export const loginController = controllerBuilder(async (req) => {
     const name = req.body.name;
@@ -14,4 +14,10 @@ export const registerController = controllerBuilder(async (req) => {
     const password = req.body.password;
 
     registerUseCase.execute(name, email, password);
+})
+
+export const selfUserInfoController = controllerBuilder(async (_, {locals}) => {
+    const userId = locals.token!.sub
+
+    return await userDetailUseCase.execute(Number(userId));
 })
