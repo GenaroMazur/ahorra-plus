@@ -1,29 +1,19 @@
-export default class Category {
-    id: number
-    name: string
-    description: string
-    modificable: boolean
-    userId: number | null
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
-    constructor(
-        {
-            id,
-            name,
-            description,
-            modificable,
-            userId
-        }: {
-            id: number
-            name: string
-            description: string
-            modificable: boolean
-            userId: number | null
-        }
-    ) {
-        this.id = id
-        this.name = name
-        this.description = description
-        this.modificable = modificable
-        this.userId = userId
-    }
+@Entity("category")
+export default class Category {
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column({type: "varchar", length: 100})
+    name: string
+
+    @Column({type: "text"})
+    description: string
+
+    @Column({type: "boolean", default: true})
+    modificable: boolean
+
+    @Column({type: "int", nullable: true})
+    userId: number | null
 }
