@@ -2,5 +2,5 @@ import RepositoryInterface from "../../../../share/interfaces/Repository.interfa
 import Goal from "../entity/Goal";
 
 export interface GoalRepository extends RepositoryInterface<Goal> {
-    
+    listByUserId(userId: number): Promise<Goal[]>;
 }
