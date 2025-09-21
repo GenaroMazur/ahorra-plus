@@ -21,7 +21,7 @@ export default class JwtProvider implements JwtProviderInterface {
 
         const token = new Token(
             randomUUID(),
-            userId.toString(),
+            userId,
             "ahorraPlus",
             "ahorraPlus",
             now.getTime() / 1000,
@@ -33,7 +33,7 @@ export default class JwtProvider implements JwtProviderInterface {
 
     verify(token: string): Token | null {
         try {
-            const decoded = verify(token, this.secret) as Token;
+            const decoded = verify(token, this.secret) as unknown as Token;
 
             const tokenEntity = Token.fromJSON(decoded);
 

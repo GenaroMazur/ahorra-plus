@@ -1,4 +1,4 @@
-import Token from "../src/modules/token/domain/Token";
+import Token from "../modules/token/domain/Token";
 
 declare module "express" {
     export interface Response {
