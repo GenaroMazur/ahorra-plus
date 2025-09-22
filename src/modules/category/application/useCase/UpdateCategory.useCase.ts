@@ -3,7 +3,7 @@ import {UseCaseInterface} from "../../../../share/interfaces/UseCase.interface";
 import CreateCategoryDto from "../dto/input/CreateCategory.dto";
 import CategoryNotFoundException from "../../domain/exceptions/CategoryNotFound.exception";
 
-export default class CreateCategoryUseCase extends CategoryUseCase implements UseCaseInterface {
+export default class UpdateCategoryUseCase extends CategoryUseCase implements UseCaseInterface {
     async execute(userId: number, categoryId: number, updateCategoryId: Partial<CreateCategoryDto>) {
         const category = await this.categoryRepository.findByIdAndUserId(categoryId, userId)
 

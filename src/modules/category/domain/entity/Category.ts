@@ -1,4 +1,4 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, DeleteDateColumn, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity("category")
 export default class Category {
@@ -16,4 +16,7 @@ export default class Category {
 
     @Column({type: "int", nullable: true})
     userId: number | null
+
+    @DeleteDateColumn({type: "timestamp", nullable: true})
+    deletedAt: Date | null
 }
