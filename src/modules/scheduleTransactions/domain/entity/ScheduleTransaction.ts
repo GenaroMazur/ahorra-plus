@@ -1,6 +1,6 @@
 import {TransactionRegularityEnum} from "../../../../share/enums/TransactionRegularity.enum";
 import {TransactionTypeEnum} from "../../../../share/enums/TransactionType.enum";
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity("schedule_transaction")
 export default class ScheduleTransaction {
@@ -26,12 +26,10 @@ export default class ScheduleTransaction {
     @Column({type: "decimal", precision: 10, scale: 2, nullable: false})
     amount: number
 
-    @Column({type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
+    @CreateDateColumn()
     createdAt: Date
-    @Column({type: "timestamp", default: () => "CURRENT_TIMESTAMP", onUpdate: "CURRENT_TIMESTAMP"})
+    @UpdateDateColumn()
     updatedAt: Date
-    @Column({type: "timestamp", nullable: true})
-    deletedAt: Date | null
 
     @Column({type: "varchar", length: 50, nullable: false})
     periodicity: `${number} ${'day' | 'week' | 'month' | 'year'}`
