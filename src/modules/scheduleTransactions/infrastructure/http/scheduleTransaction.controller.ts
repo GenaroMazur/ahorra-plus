@@ -29,6 +29,7 @@ export const createScheduleTransactionsController = controllerBuilder(async ({bo
     createScheduleTransactionDto.type = body.type
     createScheduleTransactionDto.regularity = body.regularity
     createScheduleTransactionDto.nextOccurrence = body.nextOccurrence
+    createScheduleTransactionDto.periodicity = body.periodicity
 
     return await createScheduleTransactionUseCase.execute(userId, createScheduleTransactionDto)
 })
