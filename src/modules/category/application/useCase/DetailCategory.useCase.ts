@@ -8,6 +8,8 @@ export default class DetailCategoryUseCase extends CategoryUseCase implements Us
 
         if (!category) throw new CategoryNotFoundException(categoryId)
 
+        await this.categoryRepository.delete(category)
+
         return category
     }
 }
